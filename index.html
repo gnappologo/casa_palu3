@@ -499,41 +499,42 @@
         <div class="booking-form">
             <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">Compila il form per richiedere la disponibilità. Ti risponderemo in tempi brevissimi con la nostra <strong>migliore offerta garantita</strong>, senza commissioni di agenzia.</p>
             
-            <form id="contactForm" onsubmit="submitForm(event)">
+            <!-- Modulo collegato a Formspree con i relativi attributi name -->
+            <form action="https://formspree.io/f/xqpzljqv" method="POST">
                 <div class="form-group">
                     <label for="nome">Nome e Cognome *</label>
-                    <input type="text" id="nome" placeholder="Es. Mario Rossi" required>
+                    <input type="text" id="nome" name="nome" placeholder="Es. Mario Rossi" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" id="email" placeholder="mario.rossi@email.com" required>
+                    <input type="email" id="email" name="email" placeholder="mario.rossi@email.com" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="telefono">Telefono (Opzionale, per risposta più rapida)</label>
-                    <input type="tel" id="telefono" placeholder="+39 333 1234567">
+                    <input type="tel" id="telefono" name="telefono" placeholder="+39 333 1234567">
                 </div>
                 
                 <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                     <div class="form-group" style="flex: 1; min-width: 200px;">
                         <label for="checkin">Data di Arrivo *</label>
-                        <input type="date" id="checkin" required>
+                        <input type="date" id="checkin" name="checkin" required>
                     </div>
                     <div class="form-group" style="flex: 1; min-width: 200px;">
                         <label for="checkout">Data di Partenza *</label>
-                        <input type="date" id="checkout" required>
+                        <input type="date" id="checkout" name="checkout" required>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="ospiti">Numero Totale di Ospiti *</label>
-                    <input type="number" id="ospiti" min="1" max="8" value="2" required>
+                    <input type="number" id="ospiti" name="ospiti" min="1" max="8" value="2" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="messaggio">Hai richieste particolari? (Es. animali, orari di arrivo...)</label>
-                    <textarea id="messaggio" rows="5" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                    <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi qui il tuo messaggio..."></textarea>
                 </div>
                 
                 <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem; padding: 18px;">Invia Richiesta di Prenotazione ✉️</button>
@@ -549,12 +550,5 @@
         <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;">© 2026 Casa Palù - Tutti i diritti riservati.</p>
     </footer>
 
-    <script>
-        function submitForm(event) {
-            event.preventDefault();
-            alert("✅ Grazie! La tua richiesta per Casa Palù è stata inviata con successo. Ti ricontatteremo al più presto sulla tua email per confermare la disponibilità.");
-            document.getElementById("contactForm").reset();
-        }
-    </script>
 </body>
 </html>
