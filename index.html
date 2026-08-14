@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Palù 🏔️ | Appartamento Vacanze a Chiesa Valmalenco</title>
+    <!-- Importazione Font Moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            color: #4a4a4a;
+            line-height: 1.7;
+            background-color: #f4f7f6;
+        }
+
+        /* Colori e Variabili */
+        :root {
+            --primary-dark: #1F3C3D; /* Verde scuro alpino */
+            --accent: #E07A5F;      /* Terracotta/Arancio per i pulsanti */
+            --accent-hover: #c9654d;
+            --card-bg: #ffffff;
+        }
+
+        /* Navigazione */
+        header {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(31, 60, 61, 0.6), rgba(31, 60, 61, 0.8)), url('IMG_4683_2.jpg') center/cover;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(224, 122, 95, 0.4);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(224, 122, 95, 0.6);
+        }
+
+        /* Sezioni Comuni */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h3 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        /* Stile Card per Descrizioni e Posizione */
+        .card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Stili per le card con banner immagine sul titolo */
+        .card-banner {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .card-header-bg {
+            padding: 50px 40px;
+            color: white;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .card-header-bg h3 {
+            color: white;
+            margin-bottom: 0;
+        }
+
+        .card-content {
+            padding: 40px;
+        }
+
+        .card-inverno-header {
+            background: linear-gradient(rgba(31, 60, 61, 0.5), rgba(31, 60, 61, 0.7)), url('neve.jpg') center/cover;
+        }
+
+        .card-estate-header {
+            background: linear-gradient(rgba(31, 60, 61, 0.5), rgba(31, 60, 61, 0.7)), url('lago.jpg') center/cover;
+        }
+
+        /* Galleria Immagini */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease, filter 0.4s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.04);
+            filter: brightness(1.1);
+        }
+
+        /* Servizi ed Esperienza */
+        .grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-item {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 2rem;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .grid-text h4 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        /* Posizione */
+        .posizione-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .posizione-testo {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .posizione-mappa {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .posizione-mappa iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Modulo Prenotazione */
+        .booking-form {
+            background-color: var(--card-bg);
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.95rem;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Casa Palù 🏔️</h1>
+        <nav>
+            <ul>
+                <li><a href="#appartamento">L'Appartamento</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#inverno">Inverno</a></li>
+                <li><a href="#estate">Estate</a></li>
+                <li><a href="#posizione">Posizione</a></li>
+                <li><a href="#prenota">Prenota Ora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Casa Palù</h2>
+        <p>Il tuo rifugio esclusivo nel cuore di Chiesa in Valmalenco ✨</p>
+        <a href="#prenota" class="btn">Richiedi Disponibilità</a>
+    </div>
+
+    <section id="appartamento">
+        <h3>Vivi i nostri spazi 🛋️</h3>
+        <div class="card">
+            <p>Benvenuti a <strong>Casa Palù</strong>, un appartamento curato nei minimi dettagli per offrirvi il massimo del comfort in ogni stagione. La zona giorno vi accoglierà con una <strong>spaziosa e luminosa cucina</strong> 🍳, perfettamente attrezzata con tutto il necessario: forno ventilato, moderno fornello ad induzione, microonde, ampio frigorifero e freezer. A completare l'area, un comodo <strong>soggiorno dotato di un divano letto matrimoniale</strong>, l'ideale per rilassarsi dopo una giornata in montagna 📺.</p>
+            <p>La zona notte, perfetta per famiglie o gruppi, è strutturata in due stanze separate: una prima <strong>camera con un letto matrimoniale e un letto a castello</strong> 🛏️, e una <strong>seconda camera con un letto matrimoniale</strong>. Troverete inoltre un accogliente <strong>bagno</strong> completo di tutto l'essenziale, inclusa una <strong>lavatrice</strong> 🧼 a vostra disposizione.</p>
+            <p>Casa Palù è pensata per soddisfare ogni esigenza moderna: la connessione <strong>Wi-Fi FTTH</strong> 🚀 è ultra-veloce, perfetta per lo streaming serale o per lo smart working ad alta quota. Infine, potrete scordarvi lo stress del parcheggio grazie al nostro <strong>garage privato</strong> 🚗.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <img src="IMG_4683.jpg" alt="Cucina attrezzata e zona pranzo con vista">
+            <img src="IMG_4687.jpg" alt="Dettaglio mobili cucina e piano a induzione">
+            <img src="IMG_4682.jpg" alt="Ampia sala da pranzo e finestre luminose">
+            <img src="IMG_4680.jpg" alt="Soggiorno con stufa e TV">
+            <img src="IMG_4681.jpg" alt="Soggiorno con divano letto matrimoniale e poltrona">
+            <img src="IMG_4677.jpg" alt="Camera con letto matrimoniale e letto a castello">
+            <img src="IMG_4669.jpg" alt="Camera matrimoniale principale">
+            <img src="IMG_4672.jpg" alt="Bagno con servizi e finestra">
+            <img src="IMG_4673.jpg" alt="Bagno con doccia e lavatrice">
+        </div>
+    </section>
+
+    <section id="servizi" style="background-color: #eaeaea; border-radius: 30px;">
+        <h3>Dotazioni in sintesi 🔑</h3>
+        <div class="grid-list">
+            <div class="grid-item">
+                <div class="icon">🚀</div>
+                <div class="grid-text">
+                    <h4>Wi-Fi FTTH</h4>
+                    <p>Fibra ottica ad altissima velocità, perfetta per smart working e streaming.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🍳</div>
+                <div class="grid-text">
+                    <h4>Cucina Full Optional</h4>
+                    <p>Induzione, forno ventilato, microonde, frigorifero e freezer spaziosi.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🛌</div>
+                <div class="grid-text">
+                    <h4>Fino a 8 Posti Letto</h4>
+                    <p>2 Camere separate e un comodo divano letto matrimoniale in soggiorno.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🚿</div>
+                <div class="grid-text">
+                    <h4>Bagno Attrezzato</h4>
+                    <p>Box doccia, bidet e lavatrice privata per soggiorni lunghi.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🚗</div>
+                <div class="grid-text">
+                    <h4>Garage Privato</h4>
+                    <p>Parcheggio al coperto e sicuro riservato esclusivamente ai nostri ospiti.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🌡️</div>
+                <div class="grid-text">
+                    <h4>Comfort Totale</h4>
+                    <p>Riscaldamento con nuovissime stufe a pellet per le giornate più fredde e TV a schermo piatto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inverno">
+        <div class="card card-banner">
+            <div class="card-header-bg card-inverno-header">
+                <h3>Vivi l'Inverno e lo Sci in Valmalenco ❄️</h3>
+            </div>
+            <div class="card-content">
+                <p>Se ami la neve, la Valmalenco è il tuo paradiso ideale! Casa Palù si trova in una posizione strategica per godersi appieno il celebre comprensorio sciistico: chilometri di piste perfettamente innevate e <strong>tutte completamente collegate tra loro</strong> 🎿, che ti permettono di sciare senza sosta godendo di panorami unici.</p>
+                <p>Un grande punto di forza delle piste è la loro fantastica <strong>esposizione al sole</strong> ☀️, che garantisce giornate sulla neve luminose e calde dall'alba al tramonto. Che tu sia un esperto o un principiante, troverai strutture d'eccellenza e scuole sci dedicate con maestri qualificati pronti a farti <strong>imparare a sciare</strong> in totale sicurezza e divertimento ⛷️.</p>
+                <p>Per gli amanti dello sport e dell'adrenalina, il comprensorio offre anche un favoloso <strong>Snow Park</strong> 🏂 attrezzato per evoluzioni e freestyle. E per completare l'esperienza dello sci all'insegna del buon cibo e del relax, potrai fermarti nei <strong>numerosi rifugi presenti direttamente sulle piste</strong> 🍲, dove assaporare i piatti tipici valtellinesi circondati da una cornice alpina mozzafiato.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="estate">
+        <div class="card card-banner">
+            <div class="card-header-bg card-estate-header">
+                <h3>Vivi l'Estate in Valmalenco ☀️</h3>
+            </div>
+            <div class="card-content">
+                <p>La montagna non è magica solo in inverno! Durante la bella stagione, <strong>Casa Palù</strong> si trasforma nel punto di partenza strategico per vivere la natura incontaminata delle Alpi a 360 gradi.</p>
+            </div>
+        </div>
+        <div class="grid-list">
+            <div class="grid-item">
+                <div class="icon">🥾</div>
+                <div class="grid-text">
+                    <h4>Escursioni in Quota</h4>
+                    <p>Esplora chilometri di sentieri mozzafiato con vista privilegiata sul maestoso Pizzo Bernina e i laghi alpini.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🛖</div>
+                <div class="grid-text">
+                    <h4>Rifugi Alpini</h4>
+                    <p>Goditi piacevoli camminate verso i numerosi rifugi della valle, perfetti per una pausa rigenerante e panoramica.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🧗</div>
+                <div class="grid-text">
+                    <h4>Arrampicata</h4>
+                    <p>Mettiti alla prova sulle falesie e le pareti attrezzate sparse per la valle, ideali per ogni livello di esperienza.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🚵</div>
+                <div class="grid-text">
+                    <h4>Noleggio MTB ed E-Bike</h4>
+                    <p>Pedala senza pensieri lungo i percorsi ciclabili e i sentieri sterrati. Numerosi punti noleggio nelle vicinanze.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🍷</div>
+                <div class="grid-text">
+                    <h4>Eccellenze Enogastronomiche</h4>
+                    <p>Assapora pizzoccheri fumanti, sciatt, bresaola e i grandi vini valtellinesi nelle tipiche botteghe a due passi da casa.</p>
+                </div>
+            </div>
+            <div class="grid-item">
+                <div class="icon">🌲</div>
+                <div class="grid-text">
+                    <h4>Puro Relax</h4>
+                    <p>Stacca la spina, respira l'aria pura di montagna e ritrova il tuo benessere lontano dal caos cittadino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="posizione">
+        <h3>Posizione Strategica 📍</h3>
+        <div class="posizione-container card">
+            <div class="posizione-testo">
+                <p style="font-size: 1.3rem; color: var(--primary-dark);"><strong>Via Rusca 1, 23023 Chiesa in Valmalenco (SO)</strong></p>
+                <br>
+                <p>📍 <strong>Dimentica la macchina!</strong> Casa Palù si trova in una posizione invidiabile. L'appartamento è situato a <strong>pochissimi metri dalla fermata del bus navetta gratuito</strong> 🚌 che collega comodamente il paese direttamente con la famosa funivia <strong>Snow Eagle</strong> 🚠.</p>
+                <p>Tutto è a portata di mano: non ti servirà più utilizzare l'auto nemmeno per raggiungere il centro del paese 🚶‍♂️. Botteghe, supermercati, ristoranti tipici e tutti i servizi essenziali sono comodamente raggiungibili con una piacevole passeggiata.</p>
+                <p>Che tu sia qui per sciare in inverno o per fare trekking d'estate, avrai la massima comodità unita alla tranquillità e al fascino del paesaggio valtellinese.</p>
+            </div>
+            <div class="posizione-mappa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2777.4208493060166!2d9.845700!3d46.2662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4783858908fbbcc5%3A0x6b4f7a2db12f2c83!2sVia%20Rusca%2C%201%2C%2023023%20Chiesa%20in%20Valmalenco%20SO!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="border: 0;"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="prenota">
+        <h3>Prenota il tuo soggiorno 📅</h3>
+        <div class="booking-form">
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">Compila il form per richiedere la disponibilità. Ti risponderemo in tempi brevissimi con la nostra <strong>migliore offerta garantita</strong>, senza commissioni di agenzia.</p>
+            
+            <form id="contactForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="nome">Nome e Cognome *</label>
+                    <input type="text" id="nome" placeholder="Es. Mario Rossi" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" placeholder="mario.rossi@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Telefono (Opzionale, per risposta più rapida)</label>
+                    <input type="tel" id="telefono" placeholder="+39 333 1234567">
+                </div>
+                
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div class="form-group" style="flex: 1; min-width: 200px;">
+                        <label for="checkin">Data di Arrivo *</label>
+                        <input type="date" id="checkin" required>
+                    </div>
+                    <div class="form-group" style="flex: 1; min-width: 200px;">
+                        <label for="checkout">Data di Partenza *</label>
+                        <input type="date" id="checkout" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ospiti">Numero Totale di Ospiti *</label>
+                    <input type="number" id="ospiti" min="1" max="8" value="2" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="messaggio">Hai richieste particolari? (Es. animali, orari di arrivo...)</label>
+                    <textarea id="messaggio" rows="5" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem; padding: 18px;">Invia Richiesta di Prenotazione ✉️</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong style="font-size: 1.2rem;">Casa Palù 🏔️</strong></p>
+        <p>Via Rusca 1, 23023 Chiesa in Valmalenco (SO)</p>
+        <br>
+        <p>Prenotando direttamente da questo sito ottieni la <span class="highlight">miglior tariffa garantita</span> senza intermediari.</p>
+        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7;">© 2026 Casa Palù - Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            alert("✅ Grazie! La tua richiesta per Casa Palù è stata inviata con successo. Ti ricontatteremo al più presto sulla tua email per confermare la disponibilità.");
+            document.getElementById("contactForm").reset();
+        }
+    </script>
+</body>
+</html>
