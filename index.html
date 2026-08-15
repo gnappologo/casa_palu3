@@ -204,6 +204,30 @@
             filter: brightness(1.1);
         }
 
+        /* Sezione Video Tour */
+        .video-container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 750px;
+            object-fit: contain;
+        }
+
         /* Servizi ed Esperienza */
         .grid-list {
             display: grid;
@@ -326,6 +350,7 @@
         <nav>
             <ul>
                 <li><a href="#appartamento">L'Appartamento</a></li>
+                <li><a href="#video-tour">Video Tour</a></li>
                 <li><a href="#servizi">Servizi</a></li>
                 <li><a href="#inverno">Inverno</a></li>
                 <li><a href="#estate">Estate</a></li>
@@ -362,7 +387,22 @@
         </div>
     </section>
 
-    <section id="servizi" style="background-color: #eaeaea; border-radius: 30px;">
+    <!-- Nuova Sezione Video Tour -->
+    <section id="video-tour" style="background-color: #eaeaea; border-radius: 30px;">
+        <h3>Guarda il Tour dell'Appartamento 🎥</h3>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <!-- Sostituisci "video-appartamento.mp4" con il nome reale del file video se necessario -->
+                <video controls poster="IMG_4683_2.jpg">
+                    <source src="videocasa.mp4" type="video/mp4">
+                    Il tuo browser non supporta la riproduzione dei video.
+                </video>
+            </div>
+            <p style="margin-top: 20px; font-size: 1.05rem; color: var(--primary-dark);">Esplora la cucina, la zona giorno, le camere e il bagno attraverso il nostro video di presentazione completo.</p>
+        </div>
+    </section>
+
+    <section id="servizi">
         <h3>Dotazioni in sintesi 🔑</h3>
         <div class="grid-list">
             <div class="grid-item">
